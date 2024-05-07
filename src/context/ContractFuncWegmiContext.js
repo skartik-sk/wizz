@@ -1,22 +1,39 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { abi } from "./wizzAbi.js";
 import { useReadContract } from "wagmi";
 import { useAccount } from "wagmi";
 import { BaseError, useWriteContract } from "wagmi";
+import { LoginCookies } from "./LoginCookies.js";
 
 export const ContractFuncWegmiContext = createContext();
 
 export const ContractFuncProvider = ({ children }) => {
 
+  // user address
+  const { address } = useAccount();
+
   // Variables  
   const contractAddress = "0xE205ea38dC9c28D6472cebA1F839d5ede6984bF8";
   const contractAddressTest = "0x1B97C12E90D30877dbB641ddBFb929f89d342E0F";
 
-  const { data: createUserData, error: createUserError,isPending: createUserIsPending, writeContract: createUserWriteContract } = useWriteContract();
-  // user address
-  const { address } = useAccount();
+ 
+   //Check if wallet is connected and store in cookies if connected
+   useEffect(() => {
+    if (address == null) {
 
+      console.log("Wallet not connected");
+      LoginCookies(false);
+    } else {
+      console.log("Wallet connected");
+      LoginCookies(true);
+    }
+  } , [address])
+  
+
+  //create user/////////////////////////////////////////////////////
+  const { data: createUserData, error: createUserError,isPending: createUserIsPending, writeContract: createUserWriteContract } = useWriteContract();
+  
   const createUser = async(newUser) => {
     console.log("createUser function called");
     const { username, _name, email, address } = newUser;
