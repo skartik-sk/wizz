@@ -20,16 +20,15 @@ export const ContractFuncProvider = ({ children }) => {
  
    //Check if wallet is connected and store in cookies if connected
    useEffect(() => {
-    if (address == null) {
-      console.log("Wallet not connected");
-      LoginCookies(false);
-    } else {
-      console.log("Wallet connected");
-      LoginCookies(true);
-    }
+    if (address) {
+        console.log("Wallet connected");
+        LoginCookies(true);
+      } else {
+        console.log("Wallet not connected");
+        LoginCookies(false);
+      }
   } , [address])
   
-
   //create user/////////////////////////////////////////////////////
   const { data: createUserData, error: createUserError,isPending: createUserIsPending, writeContract: createUserWriteContract } = useWriteContract();
   

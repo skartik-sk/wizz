@@ -1,11 +1,13 @@
-import React from 'react'
+"use client"
+import React from "react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-const Test = () => {
+export default function Test() {
   return (
-    <div>
-      a test page 
-    </div>
-  )
-}
+    <>
+      <div>a test page</div>
+      <ConnectButton />
+    </>
+  );
+};
 
-export default Test
