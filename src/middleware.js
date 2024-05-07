@@ -4,15 +4,18 @@ import { cookies } from "next/headers";
 
 export function middleware(request) {
   console.log("middleware");
-  if (cookies().has("isWalletConnected")) {
+  if (cookies().has("isWalletConnected") && cookies().has("isAccount")) {
     console.log("1ST STATEMENT TRUE ////////////////////");
-     console.log(
-      "isWalletConnected value:",
-      cookies().get("isWalletConnected").value
-    );
-    if (cookies().get("isWalletConnected").value == "true") {
+
+    if (
+      cookies().get("isWalletConnected").value == "true" &&
+      cookies().get("isAccount").value == "true"
+    ) {
       console.log("1.1 ST STATEMENT TRUE ////////////////////");
-      if (request.nextUrl.pathname == "/") {
+      if (
+        request.nextUrl.pathname == "/" ||
+        request.nextUrl.pathname == "/register"
+      ) {
         console.log("1.1.1 ST STATEMENT TRUE ////////////////////");
         return NextResponse.redirect(new URL("/feeds", request.url));
       } else {
@@ -20,34 +23,37 @@ export function middleware(request) {
         return NextResponse.next();
       }
     } else {
-      console.log(
-        "isWalletConnected value:",
-        cookies().get("isWalletConnected").value
-      );
       console.log("1.2 ST STATEMENT TRUE ////////////////////");
-      if (request.nextUrl.pathname === "/") {
+      if (
+        request.nextUrl.pathname === "/" ||
+        request.nextUrl.pathname === "/register"
+      ) {
         console.log("1.2.1 ST STATEMENT TRUE ////////////////////");
         return NextResponse.next();
       } else {
         console.log("1.2.2 ST STATEMENT TRUE ////////////////////");
-        return NextResponse.request(new URL("/", request.url));
+        return NextResponse.redirect(new URL("/register", request.url));
       }
     }
   } else {
     console.log("2 ST STATEMENT TRUE ////////////////////");
     cookies.set("isWalletConnected", false);
-    if (request.nextUrl.pathname == "/") {
-        console.log("2.1 ST STATEMENT TRUE ////////////////////");
+    cookies.set("isAccount", false);
+    if (
+      request.nextUrl.pathname == "/" ||
+      request.nextUrl.pathname == "/register"
+    ) {
+      console.log("2.1 ST STATEMENT TRUE ////////////////////");
       return NextResponse.next();
     } else {
-        console.log("2.2 ST STATEMENT TRUE ////////////////////");
-      return NextResponse.redirect(new URL("/", request.url));
+      console.log("2.2 ST STATEMENT TRUE ////////////////////");
+      return NextResponse.redirect(new URL("/register", request.url));
     }
   }
 }
 
 export const config = {
-  matcher: ['/', '/test', '/feeds',],
+  matcher: ["/", "/test", "/feeds"],
 };
 
 // if (cookies().has("isWalletConnected")) {
