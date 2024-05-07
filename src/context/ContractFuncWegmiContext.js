@@ -21,7 +21,6 @@ export const ContractFuncProvider = ({ children }) => {
    //Check if wallet is connected and store in cookies if connected
    useEffect(() => {
     if (address == null) {
-
       console.log("Wallet not connected");
       LoginCookies(false);
     } else {
