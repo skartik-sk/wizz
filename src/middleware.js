@@ -53,7 +53,7 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/test", "/feeds"],
+  matcher: ["/", "/test", "/feeds","/register",],
 };
 
 // if (cookies().has("isWalletConnected")) {
