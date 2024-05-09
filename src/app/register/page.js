@@ -1,11 +1,16 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { ContractFuncWegmiContext } from "@/context/ContractFuncWegmiContext";
 
 const Register = () => {
-
-  const {address,createUser,createUserIsPending,createUserError,createUserData} = useContext(ContractFuncWegmiContext);
+  const {
+    address,
+    createUser,
+    createUserIsPending,
+    createUserError,
+    createUserData,
+  } = useContext(ContractFuncWegmiContext);
 
   const [newUser, setNewUser] = useState({
     username: "",
@@ -14,12 +19,11 @@ const Register = () => {
     address: "",
   });
 
-  const createNewUser = async(e) => {
+  const createNewUser = async (e) => {
     e.preventDefault();
-      await createUser(newUser);
-      console.log("createUserData:", createUserData);
-  }
-
+    await createUser(newUser);
+    console.log("createUserData:", createUserData);
+  };
 
   return (
     <div>
@@ -51,7 +55,7 @@ const Register = () => {
       />
       <button onClick={(e) => createNewUser(e)}>Create User</button>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

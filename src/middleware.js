@@ -21,17 +21,27 @@ export function middleware(request) {
       } else {
         console.log("1.1.2 ST STATEMENT TRUE ////////////////////");
         return NextResponse.next();
-      }
-    } else {
+      }}
+      else if (cookies().get("isWalletConnected").value == "true" &&
+      cookies().get("isAccount").value == "false") {
       console.log("1.2 ST STATEMENT TRUE ////////////////////");
-      if (
-        request.nextUrl.pathname === "/" ||
-        request.nextUrl.pathname === "/register"
-      ) {
+      if (request.nextUrl.pathname === "/register") {
         console.log("1.2.1 ST STATEMENT TRUE ////////////////////");
         return NextResponse.next();
       } else {
         console.log("1.2.2 ST STATEMENT TRUE ////////////////////");
+        return NextResponse.redirect(new URL("/register", request.url));
+      }
+    } else {
+      console.log("1.3 ST STATEMENT TRUE ////////////////////");
+      if (
+        request.nextUrl.pathname === "/" ||
+        request.nextUrl.pathname === "/register"
+      ) {
+        console.log("1.3.1 ST STATEMENT TRUE ////////////////////");
+        return NextResponse.next();
+      } else {
+        console.log("1.3.2 ST STATEMENT TRUE ////////////////////");
         return NextResponse.redirect(new URL("/register", request.url));
       }
     }

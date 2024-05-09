@@ -21,16 +21,29 @@ export const ContractFuncProvider = ({ children }) => {
 
   //CHECK ACCOUNT WITH CONNECTED WALLET ADDRESS/////////////////
 
-  const { data: isAccountData, error: isAccountError } =
-  useReadContract({
-    abi,
-    address: contractAddress,
-    functionName: "checkAccount",
-    args: [address],
-  });
+
+    const { data: isAccountData, error: isAccountError } =
+      useReadContract({
+        abi,
+        address: contractAddress,
+        functionName: "checkAccount",
+        args: [address],
+      });
+  
+    useEffect(() => {
+      if (isAccountData !== undefined) {
+        console.log("!isAccountData:", !isAccountData);
+        LoginAccountCookies(!isAccountData);
+      } else { 
+        console.log("isAccountData else:", isAccountData);
+        LoginAccountCookies(false);
+      }
+    }, [isAccountData]);
+
 
   //Check if wallet is connected and store in cookies if connected
   useEffect(() => {
+    
     if (address) {
       console.log("Wallet connected");
       LoginCookies(true);
@@ -38,14 +51,8 @@ export const ContractFuncProvider = ({ children }) => {
       console.log("Wallet not connected");
       LoginCookies(false);
     }
-    LoginAccountCookies(!isAccountData);
-    console.log("isAccountData:", !isAccountData);
-    console.log("isAccountError:", isAccountError);
-  }, [address, isAccountData, isAccountError]);
-
-  
-
-      
+    
+  }, [address, isAccountData, isAccountError]);  
 
   //create user/////////////////////////////////////////////////////
   const {
@@ -58,18 +65,15 @@ export const ContractFuncProvider = ({ children }) => {
   const createUser = async (newUser) => {
     console.log("createUser function called");
     const { username, _name, email, address } = newUser;
-    try {
-      await createUserWriteContract({
+    
+       createUserWriteContract({
         address: contractAddress,
         abi,
         functionName: "createUser",
         args: [username, _name, email, address],
-      }).then((result) => {
-        console.log("createUserData:", createUserData);
       });
-    } catch (error) {
-      throw new BaseError("Error creating user", error);
-    }
+      
+      location.reload()
   };
 
   //read number////////////////////////////////////////////////////
