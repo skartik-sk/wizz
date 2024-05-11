@@ -17,33 +17,27 @@ export const ContractFuncProvider = ({ children }) => {
   // "0xE205ea38dC9c28D6472cebA1F839d5ede6984bF8";
   const contractAddressTest = "0x1B97C12E90D30877dbB641ddBFb929f89d342E0F";
 
-  const [isAccountDataVal, setIsAccountData] = useState(false);
-
   //CHECK ACCOUNT WITH CONNECTED WALLET ADDRESS/////////////////
 
+  const { data: isAccountData, error: isAccountError } = useReadContract({
+    abi,
+    address: contractAddress,
+    functionName: "checkAccount",
+    args: [address],
+  });
 
-    const { data: isAccountData, error: isAccountError } =
-      useReadContract({
-        abi,
-        address: contractAddress,
-        functionName: "checkAccount",
-        args: [address],
-      });
-  
-    useEffect(() => {
-      if (isAccountData !== undefined) {
-        console.log("!isAccountData:", !isAccountData);
-        LoginAccountCookies(!isAccountData);
-      } else { 
-        console.log("isAccountData else:", isAccountData);
-        LoginAccountCookies(false);
-      }
-    }, [isAccountData]);
-
+  useEffect(() => {
+    if (isAccountData !== undefined) {
+      console.log("!isAccountData:", !isAccountData);
+      LoginAccountCookies(!isAccountData);
+    } else {
+      console.log("isAccountData else:", isAccountData);
+      LoginAccountCookies(false);
+    }
+  }, [isAccountData]);
 
   //Check if wallet is connected and store in cookies if connected
   useEffect(() => {
-    
     if (address) {
       console.log("Wallet connected");
       LoginCookies(true);
@@ -51,8 +45,7 @@ export const ContractFuncProvider = ({ children }) => {
       console.log("Wallet not connected");
       LoginCookies(false);
     }
-    
-  }, [address, isAccountData, isAccountError]);  
+  }, [address, isAccountData, isAccountError]);
 
   //create user/////////////////////////////////////////////////////
   const {
@@ -65,40 +58,16 @@ export const ContractFuncProvider = ({ children }) => {
   const createUser = async (newUser) => {
     console.log("createUser function called");
     const { username, _name, email, address } = newUser;
-    
-       createUserWriteContract({
-        address: contractAddress,
-        abi,
-        functionName: "createUser",
-        args: [username, _name, email, address],
-      });
-      
-      location.reload()
+
+    createUserWriteContract({
+      address: contractAddress,
+      abi,
+      functionName: "createUser",
+      args: [username, _name, email, address],
+    });
+
+    location.reload();
   };
-
-  //read number////////////////////////////////////////////////////
-  //   const { data: number } = useReadContract({
-  //     abi,
-  //     address: "0x1B97C12E90D30877dbB641ddBFb929f89d342E0F",
-  //     functionName: "getNumber",
-  //   });
-
-  //write number////////////////////////////////////////////////////////
-  //   const { data: hash, error, writeContract } = useWriteContract();
-  //   async function submit() {
-  //     console.log("changeNumber function called");
-  //     await writeContract({
-  //       address: "0x1B97C12E90D30877dbB641ddBFb929f89d342E0F",
-  //       abi,
-  //       functionName: "changeNumber",
-  //       args: [11],
-  //     }).then((result) => {
-  //       console.log("hash:", hash);
-  //       console.log("error:", error);
-  //     });
-
-  //     return hash;
-  //   }
 
   return (
     <ContractFuncWegmiContext.Provider

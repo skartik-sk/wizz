@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { ContractFuncWegmiContext } from "@/context/ContractFuncWegmiContext";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const Register = () => {
   const {
@@ -27,6 +28,7 @@ const Register = () => {
 
   return (
     <div>
+      <ConnectButton />
       Register
       <h2>Create User</h2>
       <input
@@ -55,6 +57,7 @@ const Register = () => {
       />
       <button onClick={(e) => createNewUser(e)}>Create User</button>
     </div>
+
   );
 };
 

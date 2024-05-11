@@ -47,8 +47,6 @@ export function middleware(request) {
     }
   } else {
     console.log("2 ST STATEMENT TRUE ////////////////////");
-    cookies.set("isWalletConnected", false);
-    cookies.set("isAccount", false);
     if (
       request.nextUrl.pathname == "/" ||
       request.nextUrl.pathname == "/register"
@@ -63,52 +61,8 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/test", "/feeds","/register",],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+  ],
 };
 
-// if (cookies().has("isWalletConnected")) {
-//     isWalletConnected = cookies().get("isWalletConnected");
-//     console.log("isWalletConnected value:", isWalletConnected);
-
-//     if (isWalletConnected == true && haveAccount == true) {
-//       console.log("1ST STATEMENT TRUE ////////////////////");
-//       if (
-//         request.nextUrl.pathname == "/" ||
-//         request.nextUrl.pathname == "/register"
-//       ) {
-//         console.log("redirecting to feeds isWalletConnected && haveAccount");
-//         return NextResponse.redirect(new URL("/feeds", request.url));
-//       } else {
-//         console.log("next isWalletConnected && haveAccount");
-//         return NextResponse.next();
-//       }
-//     } else if (isWalletConnected == true && haveAccount == false) {
-//       console.log("2ND STATEMENT TRUE ////////////////////");
-//       if (request.nextUrl.pathname == "/register") {
-//         return NextResponse.next();
-//       } else {
-//         return NextResponse.redirect("/register");
-//       }
-//     } else if (isWalletConnected == false) {
-//       console.log("3RD STATEMENT TRUE ////////////////////");
-//       if (
-//         request.nextUrl.pathname == "/" ||
-//         request.nextUrl.pathname == "/register"
-//       ) {
-//         return NextResponse.next();
-//       } else {
-//         return NextResponse.redirect(new URL("/test", request.url));
-//       }
-//     }
-//   } else {
-//     console.log("4TH STATEMENT TRUE ////////////////////");
-//     console.log("no cookies");
-//     if (
-//       request.nextUrl.pathname == "/" ||
-//       request.nextUrl.pathname == "/register"
-//     ) {
-//       return NextResponse.next();
-//     } else {
-//       return NextResponse.redirect(new URL("/test", request.url));
-//     }
-//   }
