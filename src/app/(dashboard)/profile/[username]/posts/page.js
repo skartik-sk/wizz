@@ -3,7 +3,7 @@ import React from 'react'
 const UserPosts = () => {
   return (
     <div>
-      UserPosts
+      User Achivements
     </div>
   )
 }

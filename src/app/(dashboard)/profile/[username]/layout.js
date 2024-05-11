@@ -27,9 +27,15 @@ export default function ProfileLayout({ children }) {
         </div>
         <div className="profile_menu">
           <ul>
-            <li>Posts</li>
-            <li>Certificates</li>
-            <li>Achivements</li>
+            <Link href="/profile/coolsem/">
+              <li>Posts</li>
+            </Link>
+            <Link href="/profile/coolsem/work">
+              <li>Work</li>
+            </Link>
+            <Link href="/profile/coolsem/achievements">
+              <li>Achivements</li>
+            </Link>
           </ul>
         </div>
         <div className="user_posts_content">{children}</div>
