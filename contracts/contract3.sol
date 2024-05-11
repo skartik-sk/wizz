@@ -11,13 +11,14 @@ contract WizzMainContract {
     uint256 public postCount;
 
     struct UserProfile {
-        bytes32 uuid;
         uint256 userNumber;
-        string userRefId;
         string username;
         string name;
         string email;
+        string bio;
         string index;
+        string profileImageRef;
+        string bannerImageRef;
         address userAddress;
         address[] followers;
         address[] following;
@@ -61,31 +62,32 @@ contract WizzMainContract {
         postCount =1;
     }
 
-    event NewUser(address indexed userAddress, string username, bytes32 uuid);
+    event NewUser(address indexed userAddress, string username);
     event Follow(address indexed follower, address indexed following);
     event Unfollow(address indexed follower, address indexed unfollowing);
     event NewUserPost(address indexed creatorAddress, uint256 indexed postCount, bytes32 indexed id);
 
     //Create and Update User Info Functions
 
-    function createUser(string memory _username, string memory _name, string memory _email, string memory _index) external {
+    function createUser(string memory _username, string memory _name, string memory _email, string memory _index,string memory _bio,string memory _bannerImageRef,string memory _profileImageRef) external {
 
         require(usernameToAddress[_username] == address(0), "Username already exists");
         require(profiles[msg.sender].userAddress == address(0), "User already exists with this address");
 
-        bytes32 uuid = keccak256(abi.encodePacked(msg.sender, block.timestamp));
         profiles[msg.sender].username = _username;
         profiles[msg.sender].name = _name;
         profiles[msg.sender].email = _email;
+        profiles[msg.sender].bio = _bio;
+        profiles[msg.sender].profileImageRef = _profileImageRef;
+        profiles[msg.sender].bannerImageRef = _bannerImageRef;
         profiles[msg.sender].userAddress = msg.sender;
-        profiles[msg.sender].uuid = uuid;
         profiles[msg.sender].index = _index;
         profiles[msg.sender].userNumber = userCount;
         profiles[msg.sender].userPostCount = 1;
         usernameToAddress[_username] = msg.sender;
         userCount++;
 
-        emit NewUser(msg.sender, _username, uuid);
+        emit NewUser(msg.sender, _username);
     }
 
     //Create and Update User followers and followings Functions
@@ -163,13 +165,14 @@ contract WizzMainContract {
         }
     }
 
-    function getUserProfile(address _userAddress) external view returns (string memory, address[] memory, address[] memory, bytes32) {
+    function getUserProfile(address _userAddress) external view returns (string memory, address[] memory, address[] memory) {
         UserProfile memory profile = profiles[_userAddress];
-        return (profile.username, profile.followers, profile.following, profile.uuid);
+        return (profile.username, profile.followers, profile.following);
     }
 
-    function getUserStruct(address _userAddress) external view returns (UserProfile memory) {
-    return profiles[_userAddress];
+    function getUserStructByUsername(string memory _username) external view returns (UserProfile memory){ 
+    address userAddress = usernameToAddress[_username];
+    return profiles[userAddress];
     }
 
     function getUserAddressByUsername(string memory _username) external view returns (address) {

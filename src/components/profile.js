@@ -13,17 +13,30 @@ const profile = () => {
     const { address } = useAccount();
     const contractAddress = "0x33c01b2a0C361D4eE6a4a17dC966D2500BaFc89b";
 
+    //return wallet address by username////////////////////////
+    const {
+        data: getWalletData,
+        error: getWalletError,
+        isPending: getWalletIsPending,
+      } = useReadContract(
+        {
+          abi,
+          address: contractAddress,
+          functionName: "getWalletAddress",
+          args: [username],
+        }
+      );
+
     //retun full user profile by address////////////////////////
-  const {
+   const {
     data: getUserData,
     error: getUserError,
     isPending: getUserIsPending,
-    readContract: getUserReadContract,
   } = useReadContract(
     {
       abi,
       address: contractAddress,
-      functionName: "getUser",
+      functionName: "getUserStruct",
       args: [address],
     }
   );
@@ -32,15 +45,16 @@ const profile = () => {
         console.log("getUserData:", getUserData);
         console.log("getUserError:", getUserError);
         console.log("getUserIsPending:", getUserIsPending);
-    }, [getUserData,address,getUserError,getUserIsPending]);
+    }, [getUserData,address]);
 
 
   return (
     <div>
+        {getUserData? 
       <div className="main_profile_section">
           <div className="user_profile_banner_img"></div>
           <div className="user_info">
-            <h2 className="user_full_name">Sumit Choudhary</h2>
+            <h2 className="user_full_name">{getUserData.name}</h2>
             <h4 className="user_username">@{username}</h4>
             <p className="user_bio">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
@@ -48,14 +62,15 @@ const profile = () => {
             </p>
             <div className="user_followers">
               <Link href="/profile/coolsem/followers">
-                <p>Followers: 200</p>
+                <p>followers: {getUserData.followers.length}</p>
               </Link>
               <Link href="/profile/coolsem/following">
-                <p>Following: 200</p>
+                <p>following: {getUserData.following.length}</p>
               </Link>
             </div>
           </div>
         </div>
+         : <h1>Loading...</h1>}
     </div>
   )
 }
