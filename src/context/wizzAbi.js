@@ -1,22 +1,6 @@
+export const deployementAddress = "0xb97A208b91508213E8d9c489Edc2C20b3546990a"
+
 export const abi = [
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_content",
-				"type": "string"
-			},
-			{
-				"internalType": "bytes32[]",
-				"name": "_IPFSImagesRef",
-				"type": "bytes32[]"
-			}
-		],
-		"name": "createPost",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
 	{
 		"inputs": [
 			{
@@ -36,7 +20,17 @@ export const abi = [
 			},
 			{
 				"internalType": "string",
-				"name": "_index",
+				"name": "_bio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_bannerImageRef",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_profileImageRef",
 				"type": "string"
 			}
 		],
@@ -96,12 +90,6 @@ export const abi = [
 				"internalType": "string",
 				"name": "username",
 				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "bytes32",
-				"name": "uuid",
-				"type": "bytes32"
 			}
 		],
 		"name": "NewUser",
@@ -121,12 +109,6 @@ export const abi = [
 				"internalType": "uint256",
 				"name": "postCount",
 				"type": "uint256"
-			},
-			{
-				"indexed": true,
-				"internalType": "bytes32",
-				"name": "id",
-				"type": "bytes32"
 			}
 		],
 		"name": "NewUserPost",
@@ -167,50 +149,6 @@ export const abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "allPostsByNumber",
-		"outputs": [
-			{
-				"internalType": "bytes32",
-				"name": "id",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "uint256",
-				"name": "postNumber",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "userPostNumber",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "content",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "creatorAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "TimeStamp",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address",
 				"name": "_userAddress",
 				"type": "address"
@@ -228,55 +166,158 @@ export const abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "getAllPosts",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "followers",
 		"outputs": [
 			{
-				"components": [
-					{
-						"internalType": "bytes32",
-						"name": "id",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "postNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "userPostNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "content",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "creatorAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "TimeStamp",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes32[]",
-						"name": "IPFSImagesRef",
-						"type": "bytes32[]"
-					},
-					{
-						"internalType": "address[]",
-						"name": "likedBy",
-						"type": "address[]"
-					}
-				],
-				"internalType": "struct WizzMainContract.UserPost[]",
+				"internalType": "uint256",
+				"name": "userNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "bio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "profileImageRef",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "bannerImageRef",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeCreated",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "followerCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "followingCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "postCount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "",
-				"type": "tuple[]"
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "following",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "userNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "bio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "profileImageRef",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "bannerImageRef",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "timeCreated",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "followerCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "followingCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "postCount",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -284,7 +325,7 @@ export const abi = [
 	},
 	{
 		"inputs": [],
-		"name": "getAllUserAddresses",
+		"name": "getAllAddresses",
 		"outputs": [
 			{
 				"internalType": "address[]",
@@ -302,19 +343,9 @@ export const abi = [
 			{
 				"components": [
 					{
-						"internalType": "bytes32",
-						"name": "uuid",
-						"type": "bytes32"
-					},
-					{
 						"internalType": "uint256",
 						"name": "userNumber",
 						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "userRefId",
-						"type": "string"
 					},
 					{
 						"internalType": "string",
@@ -333,13 +364,43 @@ export const abi = [
 					},
 					{
 						"internalType": "string",
-						"name": "index",
+						"name": "bio",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "profileImageRef",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "bannerImageRef",
 						"type": "string"
 					},
 					{
 						"internalType": "address",
 						"name": "userAddress",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeCreated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "followerCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "followingCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "postCount",
+						"type": "uint256"
 					},
 					{
 						"internalType": "address[]",
@@ -350,21 +411,6 @@ export const abi = [
 						"internalType": "address[]",
 						"name": "following",
 						"type": "address[]"
-					},
-					{
-						"internalType": "uint256",
-						"name": "userPostCount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "allUserPosts",
-						"type": "uint256[]"
-					},
-					{
-						"internalType": "bytes32[]",
-						"name": "Projects",
-						"type": "bytes32[]"
 					}
 				],
 				"internalType": "struct WizzMainContract.UserProfile[]",
@@ -377,73 +423,12 @@ export const abi = [
 	},
 	{
 		"inputs": [],
-		"name": "getCurrentPostCount",
+		"name": "getUserCount",
 		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_postNumber",
-				"type": "uint256"
-			}
-		],
-		"name": "getPostByNumber",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "bytes32",
-						"name": "id",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "postNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "userPostNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "content",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "creatorAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "TimeStamp",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes32[]",
-						"name": "IPFSImagesRef",
-						"type": "bytes32[]"
-					},
-					{
-						"internalType": "address[]",
-						"name": "likedBy",
-						"type": "address[]"
-					}
-				],
-				"internalType": "struct WizzMainContract.UserPost",
-				"name": "",
-				"type": "tuple"
 			}
 		],
 		"stateMutability": "view",
@@ -457,12 +442,12 @@ export const abi = [
 				"type": "string"
 			}
 		],
-		"name": "getUserAddressByUsername",
+		"name": "getUserFollowersByUsername",
 		"outputs": [
 			{
-				"internalType": "address",
+				"internalType": "address[]",
 				"name": "",
-				"type": "address"
+				"type": "address[]"
 			}
 		],
 		"stateMutability": "view",
@@ -471,12 +456,12 @@ export const abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_userAddress",
-				"type": "address"
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
 			}
 		],
-		"name": "getUserFollowers",
+		"name": "getUserFollowingByUsername",
 		"outputs": [
 			{
 				"internalType": "address[]",
@@ -491,111 +476,16 @@ export const abi = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "_userAddress",
+				"name": "_address",
 				"type": "address"
 			}
 		],
-		"name": "getUserFollowing",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_userAddress",
-				"type": "address"
-			}
-		],
-		"name": "getUserPosts",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "bytes32",
-						"name": "id",
-						"type": "bytes32"
-					},
-					{
-						"internalType": "uint256",
-						"name": "postNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "userPostNumber",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "content",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "creatorAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "TimeStamp",
-						"type": "uint256"
-					},
-					{
-						"internalType": "bytes32[]",
-						"name": "IPFSImagesRef",
-						"type": "bytes32[]"
-					},
-					{
-						"internalType": "address[]",
-						"name": "likedBy",
-						"type": "address[]"
-					}
-				],
-				"internalType": "struct WizzMainContract.UserPost[]",
-				"name": "",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_userAddress",
-				"type": "address"
-			}
-		],
-		"name": "getUserProfile",
+		"name": "getUsernameByUserAddress",
 		"outputs": [
 			{
 				"internalType": "string",
 				"name": "",
 				"type": "string"
-			},
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			},
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "",
-				"type": "bytes32"
 			}
 		],
 		"stateMutability": "view",
@@ -604,29 +494,19 @@ export const abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_userAddress",
-				"type": "address"
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
 			}
 		],
-		"name": "getUserStruct",
+		"name": "getUserStructByUsername",
 		"outputs": [
 			{
 				"components": [
 					{
-						"internalType": "bytes32",
-						"name": "uuid",
-						"type": "bytes32"
-					},
-					{
 						"internalType": "uint256",
 						"name": "userNumber",
 						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "userRefId",
-						"type": "string"
 					},
 					{
 						"internalType": "string",
@@ -645,13 +525,43 @@ export const abi = [
 					},
 					{
 						"internalType": "string",
-						"name": "index",
+						"name": "bio",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "profileImageRef",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "bannerImageRef",
 						"type": "string"
 					},
 					{
 						"internalType": "address",
 						"name": "userAddress",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeCreated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "followerCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "followingCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "postCount",
+						"type": "uint256"
 					},
 					{
 						"internalType": "address[]",
@@ -662,21 +572,6 @@ export const abi = [
 						"internalType": "address[]",
 						"name": "following",
 						"type": "address[]"
-					},
-					{
-						"internalType": "uint256",
-						"name": "userPostCount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "allUserPosts",
-						"type": "uint256[]"
-					},
-					{
-						"internalType": "bytes32[]",
-						"name": "Projects",
-						"type": "bytes32[]"
 					}
 				],
 				"internalType": "struct WizzMainContract.UserProfile",
@@ -719,24 +614,58 @@ export const abi = [
 				"internalType": "address",
 				"name": "",
 				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "posts",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "postType",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "postNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "content",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "creatorAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "TimeStamp",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"name": "profiles",
 		"outputs": [
 			{
-				"internalType": "bytes32",
-				"name": "uuid",
-				"type": "bytes32"
-			},
-			{
 				"internalType": "uint256",
 				"name": "userNumber",
 				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "userRefId",
-				"type": "string"
 			},
 			{
 				"internalType": "string",
@@ -755,7 +684,17 @@ export const abi = [
 			},
 			{
 				"internalType": "string",
-				"name": "index",
+				"name": "bio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "profileImageRef",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "bannerImageRef",
 				"type": "string"
 			},
 			{
@@ -765,7 +704,22 @@ export const abi = [
 			},
 			{
 				"internalType": "uint256",
-				"name": "userPostCount",
+				"name": "timeCreated",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "followerCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "followingCount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "postCount",
 				"type": "uint256"
 			}
 		],
@@ -793,6 +747,25 @@ export const abi = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "usernameToAddress",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",

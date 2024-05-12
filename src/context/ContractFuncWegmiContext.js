@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
-import { abi } from "./wizzAbi.js";
+import { abi, deployementAddress } from "./wizzAbi.js";
 import { useReadContract } from "wagmi";
 import { useAccount } from "wagmi";
 import { BaseError, useWriteContract } from "wagmi";
@@ -13,9 +13,9 @@ export const ContractFuncProvider = ({ children }) => {
   const { address } = useAccount();
 
   // Variables
-  const contractAddress = "0x33c01b2a0C361D4eE6a4a17dC966D2500BaFc89b";
+  const contractAddress = deployementAddress;
+  // const contractAddress = "0x33c01b2a0C361D4eE6a4a17dC966D2500BaFc89b";
   // "0xE205ea38dC9c28D6472cebA1F839d5ede6984bF8";
-  const contractAddressTest = "0x1B97C12E90D30877dbB641ddBFb929f89d342E0F";
 
   //CHECK ACCOUNT WITH CONNECTED WALLET ADDRESS/////////////////
 
@@ -28,8 +28,8 @@ export const ContractFuncProvider = ({ children }) => {
 
   useEffect(() => {
     if (isAccountData !== undefined) {
-      console.log("!isAccountData:", !isAccountData);
-      LoginAccountCookies(!isAccountData);
+      console.log("isAccountData:", isAccountData);
+      LoginAccountCookies(isAccountData);
     } else {
       console.log("isAccountData else:", isAccountData);
       LoginAccountCookies(false);
@@ -60,14 +60,22 @@ export const ContractFuncProvider = ({ children }) => {
     const { username, _name, email, address } = newUser;
 
     createUserWriteContract({
-      address: contractAddress,
+      address: deployementAddress,
       abi,
       functionName: "createUser",
-      args: [username, _name, email, address],
+      args: [username, _name, email, "hii", "imgref", "bannerref"],
     });
-
-    location.reload();
+     console.log("createUser function called 2");
+     console.log("createUserData:", createUserData);
+      console.log("createUserError:", createUserError);
   };
+
+  useEffect(() => {
+    if (createUserData !== undefined) {
+      location.reload();
+      console.log("createUserData:", createUserData);
+    }
+  }, [createUserData, createUserError, createUserIsPending]);
 
   return (
     <ContractFuncWegmiContext.Provider
