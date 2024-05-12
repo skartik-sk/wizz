@@ -65,9 +65,9 @@ export const ContractFuncProvider = ({ children }) => {
       functionName: "createUser",
       args: [username, _name, email, "hii", "imgref", "bannerref"],
     });
-     console.log("createUser function called 2");
-     console.log("createUserData:", createUserData);
-      console.log("createUserError:", createUserError);
+    console.log("createUser function called 2");
+    console.log("createUserData:", createUserData);
+    console.log("createUserError:", createUserError);
   };
 
   useEffect(() => {
