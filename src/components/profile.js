@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { abi } from "@/context/wizzAbi.js";
+import { abi, deployementAddress } from "@/context/wizzAbi.js";
 import { useReadContract } from "wagmi";
 import { useAccount } from "wagmi";
 
@@ -10,22 +10,6 @@ import { useAccount } from "wagmi";
 const profile = () => {
 
     const { username } = useParams();
-    const { address } = useAccount();
-    const contractAddress = "0x33c01b2a0C361D4eE6a4a17dC966D2500BaFc89b";
-
-    //return wallet address by username////////////////////////
-    const {
-        data: getWalletData,
-        error: getWalletError,
-        isPending: getWalletIsPending,
-      } = useReadContract(
-        {
-          abi,
-          address: contractAddress,
-          functionName: "getWalletAddress",
-          args: [username],
-        }
-      );
 
     //retun full user profile by address////////////////////////
    const {
@@ -35,9 +19,9 @@ const profile = () => {
   } = useReadContract(
     {
       abi,
-      address: contractAddress,
-      functionName: "getUserStruct",
-      args: [address],
+      address: deployementAddress,
+      functionName: "getUserStructByUsername",
+      args: [username],
     }
   );
 
@@ -45,7 +29,7 @@ const profile = () => {
         console.log("getUserData:", getUserData);
         console.log("getUserError:", getUserError);
         console.log("getUserIsPending:", getUserIsPending);
-    }, [getUserData,address]);
+    }, [getUserData]);
 
 
   return (
@@ -57,8 +41,7 @@ const profile = () => {
             <h2 className="user_full_name">{getUserData.name}</h2>
             <h4 className="user_username">@{username}</h4>
             <p className="user_bio">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-              quae.dolor sit amet consectetur adipisicing elit. Nemo,
+              bio: {getUserData.bio}
             </p>
             <div className="user_followers">
               <Link href="/profile/coolsem/followers">
