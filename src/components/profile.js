@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { abi, deployementAddress } from "@/context/wizzAbi.js";
 import { useReadContract } from "wagmi";
 
-const profile = () => {
+const Profile = () => {
   const { username } = useParams();
 
   //retun full user profile by address////////////////////////
@@ -52,4 +52,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;
