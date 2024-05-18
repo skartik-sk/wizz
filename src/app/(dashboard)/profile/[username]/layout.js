@@ -10,13 +10,13 @@ export default function ProfileLayout({ children }) {
         <Profile />
         <div className="profile_menu">
           <ul>
-            <Link href="/profile/coolsem/">
+            <Link href="/profile/wizz/">
               <li>Posts</li>
             </Link>
-            <Link href="/profile/coolsem/work">
+            <Link href="/profile/wizz/work">
               <li>Work</li>
             </Link>
-            <Link href="/profile/coolsem/achievements">
+            <Link href="/profile/wizz/achievements">
               <li>Achivements</li>
             </Link>
           </ul>

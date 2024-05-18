@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { abi, deployementAddress } from "@/context/wizzAbi.js";
 import { useReadContract } from "wagmi";
 
-const Profile = () => {
+const MiniProfile = () => {
   const { username } = useParams();
 
   //retun full user profile by address////////////////////////
@@ -29,20 +28,12 @@ const Profile = () => {
   return (
     <div>
       {getUserData ? (
-        <div className="main_profile_section">
-          <div className="user_profile_banner_img"></div>
-          <div className="user_info">
+        <div className="mini_profile">
+          <div className="mini_profile_img"></div>
+          <div className="mini_profile_info">
             <h2 className="user_full_name">{getUserData.name}</h2>
             <h4 className="user_username">@{username}</h4>
             <p className="user_bio">bio: {getUserData.bio}</p>
-            <div className="user_followers">
-              <Link href="/wizz/followers">
-                <p>followers: {getUserData.followers.length}</p>
-              </Link>
-              <Link href="/wizz/following">
-                <p>following: {getUserData.following.length}</p>
-              </Link>
-            </div>
           </div>
         </div>
       ) : (
@@ -52,4 +43,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MiniProfile;
