@@ -36,10 +36,10 @@ const Profile = () => {
             <h4 className="user_username">@{username}</h4>
             <p className="user_bio">bio: {getUserData.bio}</p>
             <div className="user_followers">
-              <Link href="/wizz/followers">
+              <Link href={`/${username}/followers`}>
                 <p>followers: {getUserData.followers.length}</p>
               </Link>
-              <Link href="/wizz/following">
+              <Link href={`/${username}/following`}>
                 <p>following: {getUserData.following.length}</p>
               </Link>
             </div>

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useParams } from "next/navigation";
 import { abi, deployementAddress } from "@/context/wizzAbi.js";
 import { useReadContract } from "wagmi";
+import Link from "next/link";
 
 const MiniProfile = () => {
   const { username } = useParams();
@@ -31,8 +32,10 @@ const MiniProfile = () => {
         <div className="mini_profile">
           <div className="mini_profile_img"></div>
           <div className="mini_profile_info">
+          <Link href={`/profile/${username}`} >
             <h2 className="user_full_name">{getUserData.name}</h2>
             <h4 className="user_username">@{username}</h4>
+            </Link>
             <p className="user_bio">bio: {getUserData.bio}</p>
           </div>
         </div>

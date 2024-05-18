@@ -1,8 +1,11 @@
 "use client";
 import Link from "next/link";
 import MiniProfile from "@/components/miniProfile";
+import { useParams } from "next/navigation";
 
 export default function ProfileLayout({ children }) {
+    const { username } = useParams();
+    
   return (
     <div className="connection_container">
       <div className="mini_profile_container">
@@ -10,13 +13,13 @@ export default function ProfileLayout({ children }) {
       </div>
       <div className="connection_menu">
         <ul>
-          <Link href="/wizz/followers">
+          <Link href={`/${username}/followers`}>
             <li>Followers</li>
           </Link>
-          <Link href="/wizz/following">
+          <Link href={`/${username}/following`}>
             <li>Following</li>
           </Link>
-          <Link href="/wizz/projects">
+          <Link href={`/${username}/projects`}>
             <li>Projects</li>
           </Link>
         </ul>
