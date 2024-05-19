@@ -7,7 +7,7 @@ import { ContractFuncWegmiContext } from "@/context/ContractFuncWegmiContext";
 export default function Home() {
   return (
     <>
-      <div className="center-contaigner">
+      <div className="center-contaigner font-poppins">
         <h1>Home</h1>
         <ConnectButton />
       </div>

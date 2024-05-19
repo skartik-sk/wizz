@@ -3,8 +3,8 @@ const rightSideBar = () => {
     const arr= ["a","b","c"]
     const arr2= ["a","b"]
 return (
-    <div className="fixed right-">
-        <div className="w-full h-[100vh] pb-12 px-4 flex flex-col  justify-start">
+    <div className="fixed w-[30%] right-2">
+        <div className=" h-[100vh] pb-12 px-4 flex flex-col  justify-start">
             <div className="mb-10 rounded-b-xl bg-[#3C404B] px-10 py-10 flex space-x-4 align-middle">
                 <div className="">
                     <img

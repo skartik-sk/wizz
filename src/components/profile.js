@@ -53,10 +53,10 @@ const Profile = () => {
   // );
   return (
     <>
-      <div className="w-3/4 flex flex-col">
+      <div className="w-3/4  flex flex-col  p-4">
 
     
-        <div className="text-white  p-4 flex flex-col  space-y-1">
+        <div className="text-white  flex flex-col  space-y-1">
           <div>
             <img 
               className="w-full h-36 rounded-xl"
@@ -75,39 +75,39 @@ const Profile = () => {
                 />
               </div>
               <div className="flex flex-col  justify-end align-bottom">
-                <button className="py-2 px-6 flex-col align-bottom justify-end text-white border-while border-2  rounded-xl">
+                <button className="py-1 px-10 flex-col align-bottom justify-end text-white border-while border-2  rounded-lg">
                   Edit
                 </button>
               </div>
             </div>
           </div>
           <div className="flex flex-col text-white justify-center">
-            <div className="text-3xl font-black">Name</div>
-            <div className="text- text-[#A4A4A4]">@UserName</div>
+            <div className="text-3xl font-semibold">Name</div>
+            <div className=" text-[#A4A4A4]">@UserName</div>
           </div>
-          <div className="text-l my-3">
+          <div className=" my-3">
             Stop scratching your head all day, searching right tool to start
             with, betterbuild is your all in one place.
           </div>
           <div className="flex space-x-4">
             <div className="flex space-x-2 align-middle">
-              <div className="text-xl font-semibold ">37</div>
+              <div className="text-lg font-semibold ">37</div>
               <div className="flex flex-col  justify-center">Followers</div>
             </div>
             <div className="flex space-x-2 align-middle">
-              <div className="text-xl font-semibold ">137</div>
+              <div className="text-lg font-semibold ">137</div>
               <div className="flex flex-col  justify-center">Followers</div>
             </div>
           </div>
         </div>
         </div>
         <div>
-          <div className=" flex flex-col align-middle ">
-            <div className="text-[#A4A4A4] text-opacity-90 font-bold sticky  border-b-[#393C49]  border-b-2 m-3 p-2 px-2 flex justify-between w-full">
+          <div className=" flex flex-col align-middle p-3 my-5 ">
+            <div className="text-[#A4A4A4] text-opacity-90 font-bold sticky  border-b-[#393C49]  border-b-2 d  flex justify-between w-full">
               <button>Post</button> <button>Achivment</button>{" "}
               <button>Work</button> <button>blog</button>
             </div>
-            <div>
+            <div className="my-4">
               {arr.map((item, index) => (
                 <div key={index}>
                   <PostCard />
