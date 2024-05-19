@@ -103,7 +103,7 @@ const Followers = () => {
   return (
     <div>
       {followers?.map((user, i) => (
-        <div className="connection_user">
+        <div key={i} className="connection_user">
           <Link href={`/profile/${followers[i].username}`}>
             <h1>{followers[i].name}</h1>
             <p>{followers[i].username}</p>
