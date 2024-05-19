@@ -7,7 +7,7 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
-import { mainnet, polygon, optimism, arbitrum, base, sepolia } from "wagmi/chains";
+import { polygonAmoy } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 //rainbowkit config
@@ -15,7 +15,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 const config = getDefaultConfig({
   appName: "My RainbowKit App",
   projectId: "9b4a97010a2d03a05e71209f233ab457",
-  chains: [mainnet, polygon, optimism, arbitrum, base, sepolia],
+  chains: [polygonAmoy],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
 

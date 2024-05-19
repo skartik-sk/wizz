@@ -1,4 +1,4 @@
-export const deployementAddress = "0xb97A208b91508213E8d9c489Edc2C20b3546990a"
+export const deployementAddress = "0x0347af47B7DD3aa09a0cDB7305A2f5839DB44C6B"
 
 export const abi = [
 	{
