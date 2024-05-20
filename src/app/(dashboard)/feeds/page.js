@@ -1,10 +1,23 @@
-import React from 'react'
-
+"use client";
+import React,{useState} from 'react'
+import {
+  Navbar,
+  Featured,
+  Sidebar,
+  RightSidebar,
+  Connection,
+  CreatePost,
+} from "@/components";
 const Feeds = () => {
   return (
-    <div>
-      main feeds
-    </div>
+ <>
+       
+      <Featured />
+              
+             
+ </>
+
+
   )
 }
 

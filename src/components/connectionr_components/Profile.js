@@ -20,11 +20,11 @@ const Profile = () => {
           <div className="flex space-x-4  my-3 ">
             <div className="flex space-x-2 align-middle">
               <div className="text-lg font-semibold ">37</div>
-              <div className="flex flex-col  justify-center">Followers</div>
+              <div className="flex flex-col  justify-center text-[#FBFBFB] text-opacity-90">Followers</div>
             </div>
             <div className="flex space-x-2 align-middle">
               <div className="text-lg font-semibold ">137</div>
-              <div className="flex flex-col  justify-center">Followers</div>
+              <div className="flex flex-col  justify-center text-[#FBFBFB] text-opacity-90">Followers</div>
             </div>
           </div>
           
