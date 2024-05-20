@@ -7,7 +7,7 @@ import CreateUser from "../register/CreateUser";
 
 export default function UserInfoLayout({ children }) {
   const [isClicked, setClicked] = useState(false);
-  const [isRegister, setRegister] = useState(true);
+  const [isRegister, setRegister] = useState(false);
   return (
     <>
     <div>
