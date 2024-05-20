@@ -41,10 +41,10 @@ const CreatePost = ({ setClicked }) => {
                 />
               </div>
               <div className="flex flex-col text-white justify-center">
-                <div className="text-lg font-semibold text-[#F3F3F3] text-opacity-90">
+                <div className="text-lg font-medium text-[#F3F3F3] text-opacity-90">
                   Name
                 </div>
-                <div className="text-sm text-[#D9D9D9]">@UserName</div>
+                <div className="text-sm text-[#D9D9D9] font-light">@UserName</div>
               </div>
             </div>
             <div className="flex flex-col justify-center">

@@ -57,10 +57,10 @@ const Profile = ({setClicked}) => {
       <div className="w-3/4  flex flex-col  p-4">
        <Topbar/>
         <div>
-          <div className=" flex flex-col align-middle p-3 my-5 ">
+          <div className=" flex flex-col align-middle p-3  ">
           <div className="sticky top-0 bg-[#1D1F26] bg-opacity-85 bg-blend-saturation ">
         
-            <div className="text-[#A4A4A4] text-opacity-90 font-bold sticky  border-b-[#393C49] my-3  border-b-2 d  flex justify-between w-full">
+            <div className="text-[#A4A4A4]  font-bold sticky  border-b-[#393C49] mt-3 pb-2 border-b-2   flex justify-between w-full">
               <button>Post</button> <button>Achivment</button>{" "}
               <button>Work</button> <button>blog</button>
             </div>  </div>

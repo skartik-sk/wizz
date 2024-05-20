@@ -10,7 +10,7 @@ const WhomeToFollow = () => {
         }
   return (
     <div>
-    <div className="text-[#A4A4A4]  text-opacity-90 mb-3">Whome to Follow</div>
+    <div className="text-[#A4A4A4]  text-opacity-90 ">Whome to Follow</div>
     <div className="mb-4">
         {arr.map((item, index) => (
             <div key={index}>

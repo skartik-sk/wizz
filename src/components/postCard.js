@@ -9,9 +9,9 @@ const [Comments , ShowComments] = useState(false)
     return (
         <>
     {Comments ? <AddComment setClicked={ShowComments}/>:
-        <div className={`w-full flex-col space-y-3 p-1 `}>
+        <div className={`w-full flex-col space-y-2 p-1 `}>
             {/* profile */}
-            <div className="py-2 flex space-x-4 align-middle justify-between">
+            <div className="py-2 flex space-x-2 align-middle justify-between">
                 <div className="flex space-x-4 align-middle">
                     <div>
                         <img
@@ -36,16 +36,16 @@ const [Comments , ShowComments] = useState(false)
                 betterbuild is your all in one place.
             </div>
             {/* tags */}
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap mb-1">
                 {arr2.map((item, index) => (
-                    <div key={index} className="bg-[#7501E9] py-1 px-4 m-1 w-[fit-content] text-xs text-white border-none rounded-full">
+                    <div key={index} className="bg-[#7501E9] py-1 px-4 mx-1 w-[fit-content] text-xs text-white border-none rounded-full">
                         tags
                     </div>
                 ))}
             </div>
             {/* image */}
             <img
-                className="h-72 w-full rounded-2xl"
+                className="h-72  w-full rounded-2xl"
                 src="https://plus.unsplash.com/premium_photo-1671429290842-04b1c341dbb9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D"
                 alt=""
             />
@@ -68,7 +68,7 @@ const [Comments , ShowComments] = useState(false)
                                 />
                             </svg>
                         </div>
-                        <div>355</div>
+                        <div className="text-[#A4A4A4] opacity-90">355</div>
                     </div>
                     </button>
                     <button onClick={() => {
@@ -90,7 +90,7 @@ const [Comments , ShowComments] = useState(false)
                                 />
                             </svg>
                         </div>
-                        <div>12</div>
+                        <div className="text-[#A4A4A4] opacity-90">12</div>
                     </div>
                     </button>
                     <button>
@@ -109,7 +109,7 @@ const [Comments , ShowComments] = useState(false)
                                 />
                             </svg>
                         </div>
-                        <div>13</div>
+                        <div className="text-[#A4A4A4] opacity-90">13</div>
                     </div>
                     </button>
                 </div>
@@ -134,8 +134,8 @@ const [Comments , ShowComments] = useState(false)
             </div>
             {/* Comments (not sure) */}
             {arr1.map((item, index) => (
-                <div key={index} className="bg-[#F0F0F0] bg-opacity-5 p-4 my-3 rounded-xl text-[#EDEDED]">
-                    <div className="py-2 flex space-x-4 align-middle justify-between">
+                <div key={index} className="bg-[#F0F0F0] bg-opacity-5 py-3 px-4 my-3 rounded-xl text-[#EDEDED]">
+                    <div className="pb-2 flex space-x-4 align-middle justify-between">
                         <div className="flex space-x-4 align-middle">
                             <div>
                                 <img
@@ -144,7 +144,7 @@ const [Comments , ShowComments] = useState(false)
                                 />
                             </div>
                             <div className="flex flex-col text-white justify-center">
-                                <div className="text-md">Name</div>
+                                <div className="text-lg">Name</div>
                                 <div className="text-xs text-[#D9D9D9] font-light">UserName</div>
                             </div>
                         </div>

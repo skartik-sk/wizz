@@ -2,7 +2,7 @@ import React from 'react'
 
 const Topbar = () => {
   return (
-    <div className="text-white  flex flex-col  space-y-1">
+    <div className="text-white  flex flex-col ">
     <div>
       <img 
         className="w-full h-36 rounded-xl"
@@ -29,18 +29,18 @@ const Topbar = () => {
       <div className="text-3xl font-semibold">Name</div>
       <div className=" text-[#A4A4A4]">@UserName</div>
     </div>
-    <div className=" my-3">
+    <div className=" my-2">
       Stop scratching your head all day, searching right tool to start
       with, betterbuild is your all in one place.
     </div>
     <div className="flex space-x-4">
       <div className="flex space-x-2 align-middle">
         <div className="text-lg font-semibold ">37</div>
-        <div className="flex flex-col  justify-center">Followers</div>
+        <div className="flex flex-col  justify-center text-[#FBFBFB] text-opacity-90">Followers</div>
       </div>
       <div className="flex space-x-2 align-middle">
         <div className="text-lg font-semibold ">137</div>
-        <div className="flex flex-col  justify-center">Followers</div>
+        <div className="flex flex-col  justify-center text-[#FBFBFB] text-opacity-90">Followers</div>
       </div>
     </div>
   </div>

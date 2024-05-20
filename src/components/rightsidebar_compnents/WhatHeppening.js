@@ -9,7 +9,7 @@ const WhatHeppening = () => {
     <div>
         {arr2.map((item, index) => (
             <div key={index}>
-<div className=" bg-[#F0F0F0] bg-opacity-5 p-4 my-3 rounded-xl text-[#EDEDED] space-y-1">
+<div className=" bg-[#F0F0F0] bg-opacity-5 p-3 px-4 my-3 rounded-xl text-[#EDEDED] space-y-1">
     <div className="font-semibold text-lg text-white">
     #BockchainCoders
     </div>
