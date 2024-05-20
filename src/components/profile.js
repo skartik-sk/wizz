@@ -8,7 +8,7 @@ import { PostCard } from ".";
 
 const Profile = () => {
   const { username } = useParams();
-  const arr = ["a"];
+  const arr = ["a","B","c"];
   //retun full user profile by address////////////////////////
   const {
     data: getUserData,
@@ -60,8 +60,7 @@ const Profile = () => {
           <div>
             <img 
               className="w-full h-36 rounded-xl"
-              src="https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhbm5lcnxlbnwwfHwwfHx8MA%3D%3D"
-              alt=""
+              src="https://images.unsplash.com/photo-1614853316476-de00d14cb1fc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjA4fHxiYW5uZXJ8ZW58MHx8MHx8fDA%3D"  alt=""
             />
           </div>
           <div className="px-4">
@@ -70,8 +69,7 @@ const Profile = () => {
               <div className="flex space-x-4 align-end">
                 <img
                   className="rounded-full h-28 w-28"
-                  src="https://plus.unsplash.com/premium_photo-1710911198710-3097c518f0e1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
-                  alt=""
+                  src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"alt=""
                 />
               </div>
               <div className="flex flex-col  justify-end align-bottom">
@@ -103,11 +101,13 @@ const Profile = () => {
         </div>
         <div>
           <div className=" flex flex-col align-middle p-3 my-5 ">
-            <div className="text-[#A4A4A4] text-opacity-90 font-bold sticky  border-b-[#393C49]  border-b-2 d  flex justify-between w-full">
+          <div className="sticky top-0 bg-[#1D1F26] bg-opacity-85 bg-blend-saturation ">
+        
+            <div className="text-[#A4A4A4] text-opacity-90 font-bold sticky  border-b-[#393C49] my-3  border-b-2 d  flex justify-between w-full">
               <button>Post</button> <button>Achivment</button>{" "}
               <button>Work</button> <button>blog</button>
-            </div>
-            <div className="my-4">
+            </div>  </div>
+            <div className="my-4 space-y-7">
               {arr.map((item, index) => (
                 <div key={index}>
                   <PostCard />

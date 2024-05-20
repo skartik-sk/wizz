@@ -2,15 +2,14 @@ const postCard = () => {
     const arr2 = [1, 2, 3, 4, 5];
     const arr1 = [1];
     return (
-        <div className="w-full flex-col space-y-3 p-6">
+        <div className="w-full flex-col space-y-3 p-1">
             {/* profile */}
             <div className="py-2 flex space-x-4 align-middle justify-between">
                 <div className="flex space-x-4 align-middle">
                     <div>
                         <img
                             className="rounded-full h-12 w-12"
-                            src="https://plus.unsplash.com/premium_photo-1710911198710-3097c518f0e1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
-                            alt=""
+                            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" alt=""
                         />
                     </div>
                     <div className="flex flex-col text-white justify-center">
@@ -119,18 +118,17 @@ const postCard = () => {
                         <div className="flex space-x-4 align-middle">
                             <div>
                                 <img
-                                    className="rounded-full h-10 w-10"
-                                    src="https://plus.unsplash.com/premium_photo-1710911198710-3097c518f0e1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
-                                    alt=""
+                                    className="rounded-full h-12 w-12"
+                                    src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D" alt=""
                                 />
                             </div>
                             <div className="flex flex-col text-white justify-center">
                                 <div className="text-md">Name</div>
-                                <div className="text-xs text-[#D9D9D9]">UserName</div>
+                                <div className="text-xs text-[#D9D9D9] font-light">UserName</div>
                             </div>
                         </div>
                     </div>
-                    <div className="text-wrap text-sm truncate">
+                    <div className="text-wrap  truncate">
                         Stop scratching your head all day, searching right tool to start
                     </div>
                 </div>

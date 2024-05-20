@@ -1,6 +1,7 @@
 const Sidebar = () => {
   return (
     <div className=" fixed w-[24%] h-[100vh] py-10 px-6 flex  flex-col justify-between ">
+    
       <div className="pb-20">
         <div className="pb-20">
           <div className="flex space-x-4">

@@ -11,13 +11,14 @@ export default function UserInfoLayout({ children }) {
           <Sidebar />
         </div>
         <div className="w-[55%] flex flex-col justify-center items-center  align-middle">
-          {/* <Featured /> */}
-          <Profile />
+          <Featured />
+          {/* <Profile /> */}
         </div>
 
         <div className="w-[30%] bg-[#1D1F26] mr-4 0">
+          <div className="fixed w-[30%] right-2">
           <RightSidebar />
-        </div>
+        </div>  </div>
       </div>
     </>
   );
