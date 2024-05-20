@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import MiniProfile from "@/components/miniProfile";
+import MiniProfile from "@/components/connectionr_components/miniProfile";
 import { useParams } from "next/navigation";
 
 export default function ProfileLayout({ children }) {

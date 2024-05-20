@@ -3,7 +3,8 @@ import Navbar from './navbar';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSideBar'
 import PostCard from './postCard'
-import bottomBtn from './sidebar_components/bottomBtn'
+import Connection from './connection'
+import CreatePost from './CreatePost'
 
 
-export { Navbar, Featured, Sidebar,RightSidebar,PostCard, bottomBtn};
+export { Navbar, Featured, Sidebar,RightSidebar,PostCard,Connection,CreatePost};
