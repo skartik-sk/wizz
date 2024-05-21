@@ -5,7 +5,7 @@ const Featured = ({setClicked}) => {
   return (
     <>
       {/* topbar */}
-      <div className="w-[65%] flex flex-col align-middle my-3 h-full ">
+      <div className="lg:w-[65%] md:w-[80%] w-[85%] flex flex-col align-middle my-3 h-full ">
         <div className="sticky top-0 bg-[#1D1F26] backdrop-blur-md my-3 bg-blend-saturation ">
           <div className="text-[#A4A4A4] text-opacity-90 font-bold  border-b-[#393C49] mt-3 pb-2  border-b-2    flex justify-between w-full">
             <button>For You</button> <button>Following</button>{" "}

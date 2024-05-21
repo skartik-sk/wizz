@@ -54,7 +54,7 @@ const Profile = ({setClicked}) => {
   // );
   return (
     <>
-      <div className="w-3/4  flex flex-col  p-4">
+      <div className="md:w-3/4 lg:w-[65%]  w-[90%]  flex flex-col  p-4">
        <Topbar/>
         <div>
           <div className=" flex flex-col align-middle p-3  ">

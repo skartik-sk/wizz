@@ -22,19 +22,19 @@ export default function UserInfoLayout({ children }) {
           <CreateUser />
         ) : (
           <div
-            className={`w-full h-full flex bg-[#1D1F26] justify-between  ${
+            className={`w-full h-full flex bg-[#1D1F26] lg:justify-between  ${
               isClicked == 1 || isClicked == 2 ? "bg-[#212121]  opacity-80" : ""
             }`}
           >
-            <div className="w-[24%] bg-[#1D1F26] ">
+            <div className="lg:w-[24%] md:w-[35%] hidden md:block bg-[#1D1F26] ">
               <Sidebar setClicked={setClicked} />
             </div>
-            <div className="w-[55%] h-full flex flex-col justify-center items-center  align-middle">
+            <div className="lg:w-[55%] md:w-[65%] w-full  h-full flex flex-col justify-center items-center  align-middle">
               {isClicked == 1 ? <CreatePost setClicked={setClicked} /> : null}
              {children}
             </div>
 
-            <div className="w-[30%] bg-[#1D1F26] mr-4 0">
+            <div className="w-[30%] lg:flex hidden bg-[#1D1F26] mr-4 0">
               <div className="fixed w-[30%] right-2">
                 <RightSidebar />
               </div>{" "}

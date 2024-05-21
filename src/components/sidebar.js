@@ -5,7 +5,7 @@ import Navigation from "./sidebar_components/Navigation";
 
 const Sidebar = ({setClicked}) => {
   return (
-    <div className=" fixed w-[23%] h-[100vh] py-10 px-6 flex ml-5  flex-col justify-between border-r-[#393C49] border-r-4  ">
+    <div className=" lg:fixed lg:w-[23%] md:w-[90%] hidden  h-[100vh] py-10 px-6 md:flex ml-5  flex-col justify-between border-r-[#393C49] border-r-4  ">
       <div className="pb-20">
         <Logo/>
        <Navigation/>

@@ -7,7 +7,7 @@ const rightSideBar = () => {
     const arr2= ["a","b"]
 return (
     
-        <div className=" h-full  px-4 flex flex-col  justify-start">
+        <div className=" h-full  px-4  flex-col  justify-start">
             <Profile/>
             {/* Whome to Followes */}
            <WhomeToFollow/>

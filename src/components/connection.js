@@ -6,7 +6,7 @@ const connection = () => {
     const arr = ["a", "b", "c"];
   const arr2 = ["a", "b"];
   return (
-    <div className="w-3/4  flex flex-col   p-4">
+    <div className="ld:w-3/4   md:w-[80%] w-[85%] flex flex-col   p-4">
 {/* top */}
 <Profile/>
 {/* list */}
