@@ -7,7 +7,12 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
+@font-face {
+  font-family: 'Accelerator';
+  src: url('../components/landing_components/accelerator.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
