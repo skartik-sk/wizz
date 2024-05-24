@@ -3,8 +3,8 @@ import Logo from "../sidebar_components/Logo";
 
 const Topnav = () => {
   return (
-    <div className="w-full pt-7 flex items-center justify-center align-middle">
-      <div className=" h-14 w-[60%] px-4 border flex justify-between align-middle items-center rounded-full  border-white border-opacity-30 bg-[#4D4D4D] bg-opacity-10">
+    <div className="w-full hidden  sticky z-20 top-3 pt-7 md:flex items-center justify-center align-middle ">
+      <div className=" bg-blend-multiply  h-14 w-[60%] px-4 border flex justify-between align-middle items-center rounded-full  border-white border-opacity-30 bg-[#4D4D4D] bg-opacity-10">
         <div className="w-8 h-8">
           <svg
             width="30"
@@ -21,7 +21,7 @@ const Topnav = () => {
             />
           </svg>
         </div>
-        <div className="text-white flex space-x-3">
+        <div className="text-white text-sm font-light flex space-x-7">
           <div>Who is this for</div>
           <div>Why Wizz</div>
           <div>Know More</div>

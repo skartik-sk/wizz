@@ -4,7 +4,8 @@ import React from "react";
 const Topleft = () => {
   return (
     <>
-    <div className="p-40">
+    <div className="w-full flex flex-col justify-center align-middle">
+       <div className="lg:p-36 p-10  pr-0 lg:w-[50%] ">
       <div className="flex items-center  space-x-3">
         <div className="flex">
           <img
@@ -29,11 +30,11 @@ const Topleft = () => {
         </div>
         
       </div>
-      <div style={{ fontFamily: 'Accelerator, sans-serif' }} className="font-black text-[52px] py-2 font-accelerator text-white">
+      <div style={{ fontFamily: 'Accelerator, sans-serif' }} className="font-black text-[50px] py-2 font-accelerator text-white">
         Showcase connect and grow your career
       </div>
-      <div className="flex space-x-6">
-        <div className="flex border-l">
+      <div className="lg:flex lg:flex-row lg:space-x-6 lg:space-y-0 flex flex-col space-y-3">
+        <div className="flex border-l space-x-2">
           <div className="">
             <img
               className="h-16 w-16 rounded-full "
@@ -46,7 +47,7 @@ const Topleft = () => {
             <div>Vc funding round</div>
           </div>
         </div>
-        <div className="flex border-l">
+        <div className="flex border-l space-x-2">
           <div className="">
             <img
               className="h-16 w-16 rounded-full "
@@ -61,6 +62,13 @@ const Topleft = () => {
         </div>
       </div>
       </div>
+      <div className='lg:hidden  animate-[bounce_8s_ease-out_infinite]  h-[80%] w-[85%] right-12 top-36'>
+        <img className="md:w-[70%]" src="https://github.com/SingupalliKartik/wiz/blob/main/src/components/landing_components/Group%2010.png?raw=true" alt="" />
+ 
+
+    </div>
+    </div>
+   
     </>
   );
 };
