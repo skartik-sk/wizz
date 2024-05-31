@@ -38,7 +38,7 @@ const [Comments , ShowComments] = useState(false)
             {/* tags */}
             <div className="flex flex-wrap mb-1">
                 {arr2.map((item, index) => (
-                    <div key={index} className="bg-[#7501E9] py-1 px-4 mx-1 w-[fit-content] text-xs text-white border-none rounded-full">
+                    <div key={index} className="bg-[#7501E9] py-1 px-4 mx-1 my-1 w-[fit-content] text-xs text-white border-none rounded-full">
                         tags
                     </div>
                 ))}
